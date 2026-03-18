@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== SECURITY HEADERS ===== -->
+    <!-- Content Security Policy: restricts resource loading to prevent XSS -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+                   script-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
+                   font-src 'self' https://fonts.gstatic.com;
+                   img-src 'self' data: blob:;
+                   connect-src 'self';
+                   object-src 'none';
+                   base-uri 'self';
+                   form-action 'self' https://wa.me;
+                   frame-ancestors 'none';">
+    <!-- Prevent MIME type sniffing -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <!-- XSS Protection (for older browsers) -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <!-- Prevent clickjacking -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <!-- ===== END SECURITY HEADERS ===== -->
+
+    <title>Política de Privacidad | Casino Royal VIP</title>
+    <meta name="description" content="Política de privacidad y términos de uso de Casino Royal VIP. Conocé cómo protegemos tus datos personales.">
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #09090B;
+            --bg-tertiary: #18181B;
+            --primary-500: #E11D48;
+            --primary-400: #fb7185;
+            --violet-500: #A855F7;
+            --orange-500: #F97316;
+            --primary-rgb: 225, 29, 72;
+            --text-primary: #FFFFFF;
+            --text-secondary: #E4E4E7;
+            --text-tertiary: #A1A1AA;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--primary-400); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Navbar */
+        .nav {
+            background: rgba(0,0,0,0.9);
+            border-bottom: 1px solid rgba(var(--primary-rgb), 0.15);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-brand img {
+            height: 36px;
+            width: 36px;
+            object-fit: contain;
+            border-radius: 6px;
+            filter: drop-shadow(0 0 8px rgba(var(--primary-rgb),0.5));
+        }
+        .nav-back {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-400);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Page layout */
+        .policy-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        /* Hero */
+        .policy-hero {
+            text-align: center;
+            margin-bottom: 64px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.06), rgba(168,85,247,0.05));
+            border: 1px solid rgba(var(--primary-rgb), 0.15);
+            border-radius: 24px;
+        }
+        .policy-badge {
+            display: inline-block;
+            background: rgba(var(--primary-rgb), 0.15);
+            border: 1px solid rgba(var(--primary-rgb), 0.3);
+            color: var(--primary-400);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+        .policy-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .policy-meta {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Sections */
+        .policy-section {
+            margin-bottom: 52px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .policy-section:last-of-type { border-bottom: none; }
+
+        .section-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-400);
+            margin-bottom: 6px;
+        }
+        .section-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-heading .icon { font-size: 1.2rem; }
+
+        p { margin-bottom: 14px; font-size: 0.95rem; }
+        ul, ol { padding-left: 22px; margin-bottom: 16px; }
+        li { margin-bottom: 10px; font-size: 0.95rem; }
+        strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Highlight boxes */
+        .info-box {
+            background: rgba(var(--primary-rgb), 0.07);
+            border-left: 3px solid var(--primary-500);
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        .warning-box {
+            background: rgba(249,115,22, 0.07);
+            border-left: 3px solid var(--orange-500);
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #fbd38d;
+        }
+        .warning-box strong { color: var(--orange-500); }
+
+        /* Security badges */
+        .security-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .sec-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.25);
+            color: #86efac;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+        }
+
+        /* Contact card */
+        .contact-card {
+            background: rgba(var(--primary-rgb), 0.07);
+            border: 1px solid rgba(var(--primary-rgb), 0.2);
+            border-radius: 16px;
+            padding: 28px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .contact-icon { font-size: 2rem; }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #E11D48, #A855F7);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 12px 24px;
+            border-radius: 10px;
+            margin-left: auto;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        .contact-btn:hover { opacity: 0.85; text-decoration: none; }
+
+        /* Footer */
+        .policy-footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+        .policy-footer a { color: var(--primary-400); }
+
+        /* TOC */
+        .toc {
+            background: var(--bg-tertiary);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
+        }
+        .toc ol { margin: 0; padding-left: 18px; }
+        .toc li { margin-bottom: 6px; font-size: 0.88rem; }
+        .toc a { color: var(--text-tertiary); }
+        .toc a:hover { color: var(--primary-400); }
+
+        @media (max-width: 600px) {
+            .contact-card { flex-direction: column; text-align: center; }
+            .contact-btn { margin-left: 0; width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Casino Royal VIP" loading="lazy">
+                Casino Royal <span style="color:var(--primary-400)">VIP</span>
+            </div>
+            <a href="index.html" class="nav-back">← Volver al inicio</a>
+        </div>
+    </nav>
+
+    <div class="policy-wrapper">
+
+        <!-- Hero -->
+        <div class="policy-hero">
+            <div class="policy-badge">🔒 Documento Legal</div>
+            <h1 class="policy-title">Política de Privacidad</h1>
+            <p class="policy-meta">Última actualización: <strong>16 de marzo de 2026</strong> &nbsp;|&nbsp; Versión 2.0</p>
+        </div>
+
+        <!-- TOC -->
+        <div class="toc">
+            <div class="toc-title">📋 Tabla de Contenidos</div>
+            <ol>
+                <li><a href="#s1">Información que Recopilamos</a></li>
+                <li><a href="#s2">Cómo Usamos tu Información</a></li>
+                <li><a href="#s3">Protección y Seguridad de Datos</a></li>
+                <li><a href="#s4">Cookies y Tecnologías de Rastreo</a></li>
+                <li><a href="#s5">Compartición de Datos</a></li>
+                <li><a href="#s6">Retención de Datos</a></li>
+                <li><a href="#s7">Tus Derechos como Usuario</a></li>
+                <li><a href="#s8">Juego Responsable y Protección de Menores</a></li>
+                <li><a href="#s9">Términos y Condiciones del Bono</a></li>
+                <li><a href="#s10">Modificaciones a esta Política</a></li>
+                <li><a href="#s11">Contacto y Reclamos</a></li>
+            </ol>
+        </div>
+
+        <!-- 1 -->
+        <div class="policy-section" id="s1">
+            <div class="section-num">Sección 01</div>
+            <h2 class="section-heading"><span class="icon">📥</span> Información que Recopilamos</h2>
+            <p>En <strong>Casino Royal VIP</strong> recopilamos la información mínima necesaria para brindar nuestros servicios de manera segura y personalizada. A continuación detallamos los tipos de datos que podemos recopilar:</p>
+            <ul>
+                <li><strong>Datos de identificación:</strong> Nombre y apellido, fecha de nacimiento (para verificación de mayoría de edad), número de documento.</li>
+                <li><strong>Datos de contacto:</strong> Número de teléfono/WhatsApp, dirección de correo electrónico (si corresponde).</li>
+                <li><strong>Datos financieros:</strong> Información de métodos de pago utilizados para depósitos y retiros (procesados siempre a través de pasarelas de pago certificadas; no almacenamos datos de tarjeta completos).</li>
+                <li><strong>Datos de uso:</strong> Historial de juego, apuestas realizadas, montos ganados/perdidos, sesiones activas.</li>
+                <li><strong>Datos técnicos:</strong> Dirección IP, tipo de dispositivo, navegador, sistema operativo, timestamps de acceso.</li>
+                <li><strong>Comunicaciones:</strong> Mensajes intercambiados a través de WhatsApp para soporte y gestión de cuenta.</li>
+            </ul>
+            <div class="info-box">
+                🔐 <strong>Minimización de datos:</strong> Sólo recopilamos la información estrictamente necesaria. Nunca pedimos más datos de los que requerimos para la prestación del servicio.
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="policy-section" id="s2">
+            <div class="section-num">Sección 02</div>
+            <h2 class="section-heading"><span class="icon">🎯</span> Cómo Usamos tu Información</h2>
+            <p>Utilizamos tus datos exclusivamente para los siguientes fines:</p>
+            <ul>
+                <li>Verificar tu identidad y edad (sólo mayores de 18 años).</li>
+                <li>Gestionar tu cuenta, depósitos y retiros.</li>
+                <li>Brindarte soporte al cliente personalizado.</li>
+                <li>Prevenir fraudes, lavado de dinero y actividades ilícitas.</li>
+                <li>Enviarte notificaciones sobre bonos, promociones y actualizaciones relevantes (con tu consentimiento previo).</li>
+                <li>Cumplir con obligaciones legales y regulatorias aplicables.</li>
+                <li>Mejorar la calidad y seguridad de nuestros servicios.</li>
+            </ul>
+            <p><strong>Nunca</strong> utilizamos tus datos para venderlos a terceros, ni para publicidad de terceros sin tu consentimiento expreso.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="policy-section" id="s3">
+            <div class="section-num">Sección 03</div>
+            <h2 class="section-heading"><span class="icon">🛡️</span> Protección y Seguridad de Datos</h2>
+            <p>La seguridad de tus datos es nuestra máxima prioridad. Implementamos medidas técnicas y organizativas de nivel bancario para proteger tu información:</p>
+            <ul>
+                <li><strong>Encriptación SSL/TLS 256 bits:</strong> Toda la comunicación entre tu dispositivo y nuestros servidores está encriptada.</li>
+                <li><strong>Encriptación en reposo:</strong> Los datos almacenados en nuestras bases de datos están cifrados con AES-256.</li>
+                <li><strong>Autenticación de dos factores (2FA):</strong> Disponible para acceso a cuentas sensibles.</li>
+                <li><strong>Monitoreo de seguridad 24/7:</strong> Sistemas de detección de intrusiones (IDS/IPS) activos.</li>
+                <li><strong>Protección contra ataques:</strong> Medidas activas contra XSS, SQL Injection, CSRF, DDoS y clickjacking.</li>
+                <li><strong>Acceso restringido:</strong> Solo personal autorizado accede a datos personales, bajo acuerdos de confidencialidad.</li>
+                <li><strong>Auditorías de seguridad:</strong> Realizamos pentesting y auditorías internas periódicas.</li>
+                <li><strong>Backups cifrados:</strong> Copias de seguridad automáticas con cifrado y almacenamiento geográficamente distribuido.</li>
+            </ul>
+            <div class="security-badges">
+                <span class="sec-badge">✅ SSL 256-bit</span>
+                <span class="sec-badge">✅ AES-256 En Reposo</span>
+                <span class="sec-badge">✅ Protección XSS/CSRF</span>
+                <span class="sec-badge">✅ Anti-DDoS</span>
+                <span class="sec-badge">✅ Monitoreo 24/7</span>
+                <span class="sec-badge">✅ 2FA Disponible</span>
+            </div>
+            <div class="warning-box" style="margin-top: 20px;">
+                ⚠️ <strong>Aviso de seguridad:</strong> Casino Royal VIP <strong>nunca</strong> te pedirá tu contraseña, datos de tarjeta completos ni información sensible a través de WhatsApp o mensajes no solicitados. Si recibís una comunicación sospechosa, reportala de inmediato.
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="policy-section" id="s4">
+            <div class="section-num">Sección 04</div>
+            <h2 class="section-heading"><span class="icon">🍪</span> Cookies y Tecnologías de Rastreo</h2>
+            <p>Esta página web utiliza tecnologías de almacenamiento local con los siguientes fines:</p>
+            <ul>
+                <li><strong>Cookies esenciales:</strong> Necesarias para el funcionamiento básico del sitio (sesión, seguridad CSRF, preferencias de idioma).</li>
+                <li><strong>SessionStorage:</strong> Utilizado para la cuenta regresiva del bono de bienvenida. Se borra al cerrar el navegador.</li>
+                <li><strong>LocalStorage:</strong> Para guardar preferencias de usuario de manera anónima.</li>
+                <li><strong>Cookies funcionales:</strong> Para recordar tu sesión y evitar que tengas que iniciar sesión constantemente.</li>
+            </ul>
+            <p>No utilizamos cookies de rastreo de terceros con fines publicitarios en esta página. Podés gestionar o eliminar las cookies desde la configuración de tu navegador.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="policy-section" id="s5">
+            <div class="section-num">Sección 05</div>
+            <h2 class="section-heading"><span class="icon">🤝</span> Compartición de Datos con Terceros</h2>
+            <p>No vendemos ni alquilamos tus datos personales. Sólo los compartimos en los siguientes casos limitados:</p>
+            <ul>
+                <li><strong>Procesadores de pago:</strong> Para gestionar depósitos y retiros, tus datos financieros son procesados por pasarelas de pago certificadas bajo PCI-DSS.</li>
+                <li><strong>Proveedores de verificación de identidad (KYC):</strong> Para cumplir con normativas anti-lavado de dinero.</li>
+                <li><strong>Proveedores de juegos:</strong> Los proveedores de software de juegos sólo reciben los datos mínimos necesarios (ID de usuario anónimo).</li>
+                <li><strong>Obligaciones legales:</strong> Cuando así lo exija una orden judicial o normativa aplicable, previo análisis de legalidad.</li>
+            </ul>
+            <p>Todos nuestros proveedores están obligados contractualmente a proteger tus datos y no usarlos para fines distintos a los acordados.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="policy-section" id="s6">
+            <div class="section-num">Sección 06</div>
+            <h2 class="section-heading"><span class="icon">🗓️</span> Retención de Datos</h2>
+            <p>Conservamos tus datos durante el tiempo necesario para los fines para los que fueron recopilados:</p>
+            <ul>
+                <li><strong>Datos de cuenta activa:</strong> Mientras tu cuenta esté activa y por un período adicional de hasta 5 años tras el cierre (por obligaciones legales).</li>
+                <li><strong>Registros de transacciones:</strong> Mínimo 5 años por requerimientos de normativas financieras y anti-lavado.</li>
+                <li><strong>Datos de comunicaciones:</strong> Hasta 2 años desde la última interacción.</li>
+                <li><strong>Datos técnicos (logs):</strong> Hasta 12 meses para fines de seguridad y auditoría.</li>
+            </ul>
+            <p>Transcurridos estos plazos, tus datos son eliminados o anonimizados de manera segura e irreversible.</p>
+        </div>
+
+        <!-- 7 -->
+        <div class="policy-section" id="s7">
+            <div class="section-num">Sección 07</div>
+            <h2 class="section-heading"><span class="icon">⚖️</span> Tus Derechos como Usuario</h2>
+            <p>Como titular de tus datos personales, tenés los siguientes derechos que podés ejercer en cualquier momento:</p>
+            <ul>
+                <li>🔍 <strong>Acceso:</strong> Solicitar una copia de todos los datos que tenemos sobre vos.</li>
+                <li>✏️ <strong>Rectificación:</strong> Corregir datos incorrectos o incompletos.</li>
+                <li>🗑️ <strong>Eliminación ("derecho al olvido"):</strong> Solicitar la eliminación de tus datos (con las limitaciones legales aplicables).</li>
+                <li>🚫 <strong>Oposición:</strong> Oponerte al tratamiento de tus datos para determinados fines.</li>
+                <li>📦 <strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado y legible por máquina.</li>
+                <li>⏸️ <strong>Limitación:</strong> Solicitar que limitemos el procesamiento de tus datos en ciertos casos.</li>
+            </ul>
+            <p>Para ejercer cualquiera de estos derechos, contactanos por <a href="https://wa.me/1234567890?text=Quiero%20ejercer%20mis%20derechos%20de%20datos%20personales" target="_blank" rel="noopener">WhatsApp</a>. Responderemos tu solicitud dentro de los <strong>30 días hábiles</strong> siguientes.</p>
+        </div>
+
+        <!-- 8 -->
+        <div class="policy-section" id="s8">
+            <div class="section-num">Sección 08</div>
+            <h2 class="section-heading"><span class="icon">🛑</span> Juego Responsable y Protección de Menores</h2>
+            <div class="warning-box">
+                <strong>⚠️ SÓLO PARA MAYORES DE 18 AÑOS.</strong> El acceso y uso de Casino Royal VIP está estrictamente prohibido para menores de edad. Verificamos la edad de todos los usuarios antes de permitir el acceso a juegos por dinero real.
+            </div>
+            <p>Promovemos el juego responsable y ponemos a tu disposición las siguientes herramientas:</p>
+            <ul>
+                <li><strong>Límites de depósito:</strong> Podés establecer límites diarios, semanales o mensuales.</li>
+                <li><strong>Auto-exclusión:</strong> Podés solicitar la suspensión temporal o permanente de tu cuenta.</li>
+                <li><strong>Realidad del juego:</strong> El juego es entretenimiento. Nunca juegues con dinero que no podés permitirte perder.</li>
+                <li><strong>Control del tiempo:</strong> Podés establecer recordatorios de tiempo de sesión.</li>
+            </ul>
+            <p>Si creés que tenés un problema con el juego o conocés a alguien que lo tiene, buscá ayuda profesional. El juego compulsivo es una condición tratable.</p>
+        </div>
+
+        <!-- 9 -->
+        <div class="policy-section" id="s9">
+            <div class="section-num">Sección 09</div>
+            <h2 class="section-heading"><span class="icon">🎁</span> Términos del Bono de Bienvenida 50%</h2>
+            <ul>
+                <li>El bono del <strong>50%</strong> aplica únicamente al <strong>primer depósito</strong> de cada usuario nuevo.</li>
+                <li>El monto mínimo de depósito para activar el bono es de <strong>$1.000 ARS</strong> (o equivalente en la moneda aplicable).</li>
+                <li>El bono máximo acreditable es de <strong>$50.000 ARS</strong>.</li>
+                <li>Los fondos del bono tienen un requisito de apuesta (<em>wagering requirement</em>) de <strong>20x</strong> (el bono debe apostarse 20 veces antes de poder retirarse).</li>
+                <li>El bono tiene una vigencia de <strong>30 días</strong> desde su acreditación.</li>
+                <li>El bono no es canjeable por efectivo directamente; sólo a través del cumplimiento del wagering requirement.</li>
+                <li>Casino Royal VIP se reserva el derecho de modificar, suspender o cancelar el bono en cualquier momento, con previo aviso.</li>
+                <li>El abuso del bono (cuentas múltiples, apuestas estratégicas para evadir el wagering, etc.) puede resultar en la cancelación del bono y/o la cuenta.</li>
+            </ul>
+            <div class="info-box">
+                📞 Para consultas sobre el bono, contactá a nuestro soporte antes de realizar cualquier depósito.
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="policy-section" id="s10">
+            <div class="section-num">Sección 10</div>
+            <h2 class="section-heading"><span class="icon">🔄</span> Modificaciones a esta Política</h2>
+            <p>Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestras prácticas, en la normativa aplicable, o en los servicios que ofrecemos.</p>
+            <p>Cuando realicemos cambios materiales, te notificaremos por WhatsApp o a través de un aviso destacado en la plataforma, con al menos <strong>15 días de anticipación</strong>.</p>
+            <p>El uso continuado de nuestros servicios tras la notificación de cambios implica la aceptación de la nueva política.</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="policy-section" id="s11">
+            <div class="section-num">Sección 11</div>
+            <h2 class="section-heading"><span class="icon">📞</span> Contacto y Reclamos</h2>
+            <p>Para ejercer tus derechos, realizar consultas sobre privacidad, reportar un incidente de seguridad, o presentar un reclamo, contactanos por los medios indicados a continuación:</p>
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <div>
+                    <p style="margin:0; font-weight:700; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;">Soporte y Privacidad</p>
+                    <p style="margin:4px 0 0; font-size: 0.85rem; color: var(--text-tertiary);">Atención 24/7 · Respuesta en menos de 24 hs hábiles</p>
+                </div>
+                <a href="https://wa.me/1234567890?text=Consulta%20sobre%20privacidad%20y%20datos%20personales" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    📲 Contactar por WhatsApp
+                </a>
+            </div>
+            <p style="margin-top: 20px;">En caso de que considerés que tus derechos han sido vulnerados y no hayas obtenido respuesta satisfactoria de nuestra parte dentro del plazo estipulado, podés recurrir al organismo de protección de datos de tu país.</p>
+        </div>
+
+    </div><!-- /policy-wrapper -->
+
+    <!-- Footer -->
+    <footer class="policy-footer">
+        <p>© 2026 Casino Royal VIP. Todos los derechos reservados.</p>
+        <p style="margin-top:8px;">
+            <a href="index.html">← Volver al inicio</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener">Contacto WhatsApp</a>
+        </p>
+        <p style="margin-top:12px; color: #52525b; font-size: 0.75rem;">
+            ⚠️ El juego puede ser adictivo. Jugá responsablemente. Solo para mayores de 18 años.
+        </p>
+    </footer>
+
+</body>
+</html>

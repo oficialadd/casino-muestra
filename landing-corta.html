@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    <title>Casino Royal VIP — Bono 50% Exclusivo</title>
+    <meta name="description" content="Registrate ahora en Casino Royal VIP y recibí el 50% de bono en tu primer depósito. Oferta exclusiva por tiempo limitado.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --bg:          #000000;
+            --bg2:         #09090B;
+            --red:         #E11D48;
+            --red-dark:    #BE123C;
+            --red-light:   #fb7185;
+            --violet:      #A855F7;
+            --orange:      #F97316;
+            --red-rgb:     225, 29, 72;
+            --violet-rgb:  168, 85, 247;
+            --orange-rgb:  249, 115, 22;
+            --text:        #FFFFFF;
+            --text2:       #E4E4E7;
+            --text3:       #A1A1AA;
+            --text4:       #71717A;
+            --gradient:    linear-gradient(135deg, var(--orange) 0%, var(--red) 50%, var(--violet) 100%);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        img  { max-width: 100%; display: block; }
+        a    { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 5vw, 48px);
+        }
+
+        /* ===== PARTICLES ===== */
+        #particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .p {
+            position: absolute;
+            width: 3px; height: 3px;
+            border-radius: 50%;
+            background: var(--red);
+            opacity: 0;
+        }
+        .p:nth-child(3n)   { background: var(--violet); }
+        .p:nth-child(3n+1) { background: var(--orange); width: 4px; height: 4px; }
+        @keyframes fp {
+            0%   { transform: translate(0,0); opacity: 0; }
+            10%  { opacity: .7; }
+            90%  { opacity: .3; }
+            100% { transform: translate(var(--tx),var(--ty)); opacity: 0; }
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: all .3s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(0,0,0,.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(var(--red-rgb),.12);
+            padding: 12px 0;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .nav-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+        }
+        .nav-logo-wrap img {
+            height: 40px; width: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+            filter: drop-shadow(0 0 10px rgba(var(--red-rgb),.6));
+        }
+        .nav-logo-wrap .vip { color: var(--red-light); }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gradient);
+            background-size: 200% 200%;
+            animation: gshift 4s ease infinite;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: .88rem;
+            padding: 10px 22px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: transform .3s, box-shadow .3s;
+            white-space: nowrap;
+            box-shadow: 0 0 0 1px rgba(var(--red-rgb),.4), 0 4px 20px rgba(var(--red-rgb),.35);
+        }
+        .btn-nav:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 0 2px rgba(var(--red-rgb),.7), 0 8px 36px rgba(var(--red-rgb),.55);
+        }
+
+        @keyframes gshift {
+            0%,100% { background-position: 0% 50%; }
+            50%      { background-position: 100% 50%; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 0 80px;
+        }
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 40%, rgba(var(--red-rgb),.14) 0%, rgba(var(--violet-rgb),.08) 45%, transparent 70%),
+                        radial-gradient(ellipse at 80% 80%, rgba(var(--orange-rgb),.08) 0%, transparent 50%);
+            z-index: 0;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(var(--red-rgb),.15);
+            border: 1px solid rgba(var(--red-rgb),.3);
+            color: var(--red-light);
+            font-size: .82rem;
+            font-weight: 600;
+            padding: 7px 18px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+        .badge-dot {
+            width: 8px; height: 8px;
+            background: var(--red);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(var(--red-rgb),.7); opacity: 1; }
+            50%      { box-shadow: 0 0 0 6px rgba(var(--red-rgb),0); opacity: .7; }
+        }
+
+        .hero-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.6rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -.025em;
+            margin-bottom: 22px;
+        }
+        .grad {
+            background: var(--gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gshift 4s ease infinite;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--text3);
+            max-width: 580px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .hero-sub strong { color: var(--red-light); }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient);
+            background-size: 200% 200%;
+            animation: gshift 4s ease infinite, glow-pulse 3s ease-in-out infinite;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 18px 36px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            transition: transform .3s, filter .3s;
+        }
+        .btn-main:hover { transform: translateY(-3px) scale(1.03); filter: brightness(1.1); }
+        @keyframes glow-pulse {
+            0%,100% { box-shadow: 0 0 0 1px rgba(var(--red-rgb),.5), 0 4px 24px rgba(var(--red-rgb),.4), 0 0 60px rgba(var(--red-rgb),.2); }
+            50%      { box-shadow: 0 0 0 3px rgba(var(--red-rgb),.8), 0 8px 50px rgba(var(--red-rgb),.65), 0 0 90px rgba(var(--violet-rgb),.3); }
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--text2);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 17px 32px;
+            border-radius: 14px;
+            border: 1px solid rgba(var(--red-rgb),.35);
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .btn-ghost:hover {
+            border-color: rgba(var(--red-rgb),.7);
+            background: rgba(var(--red-rgb),.08);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .trust-i {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .83rem;
+            color: var(--text3);
+            font-weight: 500;
+        }
+
+        .hero-visual {
+            margin: 48px auto 0;
+            position: relative;
+            display: inline-block;
+        }
+        .hero-glow-ring {
+            position: absolute;
+            inset: -30px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(var(--red-rgb),.2) 0%, rgba(var(--violet-rgb),.1) 45%, transparent 70%);
+            filter: blur(16px);
+        }
+        .hero-img {
+            max-width: min(480px, 90vw);
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 40px rgba(var(--red-rgb),.5)) drop-shadow(0 0 80px rgba(var(--violet-rgb),.3));
+            animation: float 7s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0) rotate(0deg); }
+            25%      { transform: translateY(-18px) rotate(1.5deg); }
+            75%      { transform: translateY(-26px) rotate(-1deg); }
+        }
+
+        /* ===== TICKER ===== */
+        .ticker {
+            background: rgba(var(--red-rgb),.06);
+            border-top: 1px solid rgba(var(--red-rgb),.12);
+            border-bottom: 1px solid rgba(var(--red-rgb),.12);
+            padding: 12px 0;
+            overflow: hidden;
+        }
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: tick 40s linear infinite;
+        }
+        .ticker-item {
+            padding: 0 36px;
+            font-size: .84rem;
+            font-weight: 600;
+            color: var(--text2);
+            white-space: nowrap;
+            border-right: 1px solid rgba(var(--red-rgb),.15);
+        }
+        @keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* ===== STATS STRIP ===== */
+        .stats {
+            padding: 70px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(var(--red-rgb),.07), rgba(var(--violet-rgb),.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(var(--red-rgb),.15);
+            border-radius: 20px;
+            padding: 32px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all .4s ease;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient);
+        }
+        .stat-card:hover { transform: translateY(-5px); border-color: rgba(var(--red-rgb),.35); box-shadow: 0 20px 40px rgba(var(--red-rgb),.2); }
+        .stat-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1;
+        }
+        .stat-num .accent { color: var(--red-light); }
+        .stat-lbl { font-size: .8rem; color: var(--text3); margin-top: 8px; text-transform: uppercase; letter-spacing: .06em; font-weight: 500; }
+        .stat-ico { font-size: 1.6rem; margin-top: 10px; }
+
+        /* ===== BONO 50% SECTION ===== */
+        .bono {
+            padding: 80px 0 100px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .bono::before, .bono::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--red-rgb),.45), rgba(var(--violet-rgb),.3), transparent);
+        }
+        .bono::before { top: 0; }
+        .bono::after  { bottom: 0; }
+        .bono-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(var(--red-rgb),.18) 0%, rgba(var(--violet-rgb),.1) 45%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .bono-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .bono-fire {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red-dark), var(--violet));
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 7px 22px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        .bono-big {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(6.5rem, 18vw, 11rem);
+            font-weight: 800;
+            line-height: .9;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gshift 3s ease infinite;
+            filter: drop-shadow(0 0 30px rgba(var(--red-rgb),.5));
+        }
+        .bono-big sup {
+            font-size: .45em;
+            -webkit-text-fill-color: transparent;
+            vertical-align: super;
+        }
+
+        .bono-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .bono-sub {
+            font-size: 1.05rem;
+            color: var(--text3);
+            margin-bottom: 44px;
+            line-height: 1.7;
+        }
+        .bono-sub strong { color: var(--red-light); }
+
+        /* Steps */
+        .steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 44px;
+            flex-wrap: wrap;
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 22px 26px;
+            background: rgba(var(--red-rgb),.08);
+            border: 1px solid rgba(var(--red-rgb),.2);
+            border-radius: 18px;
+            position: relative;
+            min-width: 148px;
+        }
+        .step-num {
+            position: absolute;
+            top: -13px;
+            background: var(--red);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: .72rem;
+            font-weight: 800;
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-ico { font-size: 2rem; }
+        .step-txt { font-size: .82rem; font-weight: 600; color: var(--text2); text-align: center; line-height: 1.4; }
+        .step-arr { font-size: 1.4rem; color: rgba(var(--red-rgb),.45); font-weight: 700; }
+
+        /* Timer */
+        .timer-label { font-size: .82rem; color: var(--orange); font-weight: 600; margin-bottom: 14px; }
+        .timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,.45);
+            border: 1px solid rgba(var(--red-rgb),.2);
+            border-radius: 14px;
+            padding: 14px 26px;
+            margin-bottom: 36px;
+        }
+        .timer-unit { display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 54px; }
+        .timer-n {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--red-light);
+            line-height: 1;
+        }
+        .timer-lbl { font-size: .62rem; color: var(--text4); text-transform: uppercase; letter-spacing: .1em; }
+        .timer-col { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.9rem; font-weight: 800; color: rgba(var(--red-rgb),.4); margin-bottom: 14px; }
+
+        /* CTA Bono */
+        .btn-bono {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--gradient);
+            background-size: 200% 200%;
+            animation: gshift 4s ease infinite, glow-pulse 3s ease-in-out infinite;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            padding: 22px 44px;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            transition: transform .3s, filter .3s;
+            width: 100%;
+            max-width: 500px;
+            letter-spacing: .02em;
+        }
+        .btn-bono:hover { transform: translateY(-3px) scale(1.02); filter: brightness(1.1); }
+
+        .bono-cond {
+            margin-top: 18px;
+            font-size: .72rem;
+            color: var(--text4);
+            line-height: 1.5;
+        }
+        .bono-cond a { color: var(--red-light); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--bg2);
+            border-top: 1px solid rgba(var(--red-rgb),.1);
+            padding: 28px 0;
+            text-align: center;
+            font-size: .78rem;
+            color: var(--text4);
+            position: relative;
+            z-index: 1;
+        }
+        .footer p + p { margin-top: 6px; }
+        .footer a { color: var(--red-light); }
+
+        /* ===== WA FLOAT ===== */
+        .wa-float {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            width: 56px; height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 4px 24px rgba(37,211,102,.5);
+            transition: transform .3s, box-shadow .3s;
+            color: #fff;
+        }
+        .wa-float:hover { transform: scale(1.12) translateY(-4px); box-shadow: 0 8px 40px rgba(37,211,102,.7); }
+
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+        .reveal.on { opacity: 1; transform: none; }
+
+        /* FADE IN UP */
+        @keyframes fiu {
+            from { opacity: 0; transform: translateY(38px); }
+            to   { opacity: 1; transform: none; }
+        }
+        .fiu { opacity: 0; animation: fiu .8s cubic-bezier(.16,1,.3,1) forwards; }
+        .d1 { animation-delay: .12s; }
+        .d2 { animation-delay: .28s; }
+        .d3 { animation-delay: .48s; }
+        .d4 { animation-delay: .66s; }
+
+        /* RESPONSIVE */
+        @media (max-width: 767px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .stat-num   { font-size: 2rem; }
+            .steps      { flex-direction: column; gap: 10px; }
+            .step-arr   { transform: rotate(90deg); }
+            .timer-n    { font-size: 1.5rem; }
+            .btn-bono   { font-size: 1rem; padding: 18px 28px; }
+            .hero-ctas  { flex-direction: column; }
+            .btn-main, .btn-ghost { width: 100%; max-width: 340px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Particles -->
+<div id="particles"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <div class="nav-logo-wrap">
+            <img src="images/logo.png" alt="Casino Royal VIP">
+            Royal <span class="vip">VIP</span>
+        </div>
+        <a href="https://wa.me/1234567890?text=Hola!%20Quiero%20registrarme%20en%20Casino%20Royal%20VIP" target="_blank" rel="noopener" class="btn-nav">
+            🎰 Crear Cuenta Gratis
+        </a>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="inicio">
+    <div class="hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-badge fiu">
+                    <span class="badge-dot"></span>
+                    <span id="live-badge">🎲 50,000 jugadores activos ahora</span>
+                </div>
+                <h1 class="hero-title fiu d1">
+                    Tu Suerte Empieza<br>
+                    <span class="grad">Ahora Mismo</span>
+                </h1>
+                <p class="hero-sub fiu d2">
+                    El casino online más emocionante de Latinoamérica. Slots, Ruleta, Blackjack y más con pagos instantáneos. <strong>¡Bono del 50% para nuevos usuarios!</strong>
+                </p>
+                <div class="hero-ctas fiu d3">
+                    <a href="https://wa.me/1234567890?text=Hola!%20Quiero%20registrarme%20y%20recibir%20mi%20bono%20del%2050%25" target="_blank" rel="noopener" class="btn-main">
+                        🚀 REGISTRARME GRATIS
+                    </a>
+                    <a href="#bono" class="btn-ghost">
+                        💰 Ver mi Bono 50%
+                    </a>
+                </div>
+                <div class="hero-trust fiu d4">
+                    <div class="trust-i">🔒 100% Seguro</div>
+                    <div class="trust-i">⚡ Pagos en 10 min</div>
+                    <div class="trust-i">🎁 Bono 50% Bienvenida</div>
+                    <div class="trust-i">📱 Soporte 24/7</div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-glow-ring"></div>
+                    <img src="images/hero_visual.png" alt="Casino Royal VIP" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker">
+    <div class="ticker-track" id="ticker-track">
+        <span class="ticker-item">🏆 Pedro G. ganó $45,000</span>
+        <span class="ticker-item">🎰 500+ juegos disponibles</span>
+        <span class="ticker-item">💸 María L. ganó $120,000</span>
+        <span class="ticker-item">⚡ Retiros en menos de 10 min</span>
+        <span class="ticker-item">🎲 Carlos R. ganó $78,000</span>
+        <span class="ticker-item">🔒 Plataforma 100% certificada</span>
+        <span class="ticker-item">🎁 Bono 50% para nuevos usuarios</span>
+        <span class="ticker-item">🏆 Ana M. ganó $200,000</span>
+        <span class="ticker-item">💸 Roberto K. ganó $55,000</span>
+        <span class="ticker-item">🎡 Laura V. ganó $92,000 en Ruleta</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">🏆 Pedro G. ganó $45,000</span>
+        <span class="ticker-item">🎰 500+ juegos disponibles</span>
+        <span class="ticker-item">💸 María L. ganó $120,000</span>
+        <span class="ticker-item">⚡ Retiros en menos de 10 min</span>
+        <span class="ticker-item">🎲 Carlos R. ganó $78,000</span>
+        <span class="ticker-item">🔒 Plataforma 100% certificada</span>
+        <span class="ticker-item">🎁 Bono 50% para nuevos usuarios</span>
+        <span class="ticker-item">🏆 Ana M. ganó $200,000</span>
+        <span class="ticker-item">💸 Roberto K. ganó $55,000</span>
+        <span class="ticker-item">🎡 Laura V. ganó $92,000 en Ruleta</span>
+    </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<section class="stats" id="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card reveal">
+                <div class="stat-num"><span id="sc-users">50,000</span><span class="accent">+</span></div>
+                <div class="stat-lbl">Jugadores Activos</div>
+                <div class="stat-ico">👥</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-num">500<span class="accent">+</span></div>
+                <div class="stat-lbl">Juegos Disponibles</div>
+                <div class="stat-ico">🎮</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-num">10<span class="accent" style="font-size:1.4rem"> min</span></div>
+                <div class="stat-lbl">Tiempo de Retiro</div>
+                <div class="stat-ico">⚡</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-num"><span class="accent" style="font-size:1.6rem">$</span>5<span class="accent" style="font-size:1.4rem">M+</span></div>
+                <div class="stat-lbl">Pagado a Ganadores</div>
+                <div class="stat-ico">💰</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BONO 50% ===== -->
+<section class="bono" id="bono">
+    <div class="bono-glow"></div>
+    <div class="container">
+        <div class="bono-inner reveal">
+            <div class="bono-fire">🔥 OFERTA EXCLUSIVA · SOLO DESDE AQUÍ</div>
+            <div class="bono-big">50<sup>%</sup></div>
+            <h2 class="bono-title">Bono de Bienvenida</h2>
+            <p class="bono-sub">
+                Registrate hoy desde esta página y recibí el <strong>50% de bonus en tu primer depósito</strong>.<br>
+                ¡Duplicá tu dinero y empezá a ganar con el doble de fichas!
+            </p>
+
+            <!-- Steps -->
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-ico">📲</div>
+                    <div class="step-txt">Creá tu cuenta gratis por WhatsApp</div>
+                </div>
+                <div class="step-arr">→</div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-ico">💳</div>
+                    <div class="step-txt">Realizá tu primer depósito</div>
+                </div>
+                <div class="step-arr">→</div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-ico">🎁</div>
+                    <div class="step-txt">Recibí tu 50% de bono automáticamente</div>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="timer-label">⏰ La oferta vence en:</div>
+            <div class="timer">
+                <div class="timer-unit">
+                    <span class="timer-n" id="t-h">23</span>
+                    <span class="timer-lbl">Horas</span>
+                </div>
+                <div class="timer-col">:</div>
+                <div class="timer-unit">
+                    <span class="timer-n" id="t-m">59</span>
+                    <span class="timer-lbl">Min</span>
+                </div>
+                <div class="timer-col">:</div>
+                <div class="timer-unit">
+                    <span class="timer-n" id="t-s">59</span>
+                    <span class="timer-lbl">Seg</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/1234567890?text=Hola!%20Vengo%20desde%20la%20landing%20corta%20y%20quiero%20reclamar%20mi%20BONO%20DEL%2050%25" target="_blank" rel="noopener" class="btn-bono">
+                🎰 ¡RECLAMAR MI BONO 50% AHORA!
+            </a>
+
+            <div class="bono-cond">
+                * Bono disponible para nuevos usuarios. Mínimo de depósito aplica.
+                <a href="privacy-policy.html">Términos y condiciones</a>.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2026 Casino Royal VIP. Todos los derechos reservados.</p>
+    <p>⚠️ Solo para mayores de 18 años. Jugá responsablemente.</p>
+    <p style="margin-top:10px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="privacy-policy.html">🔒 Política de Privacidad</a>
+        <a href="index.html" style="color:var(--text4)">Ver página completa →</a>
+    </p>
+</footer>
+
+<!-- WA Float -->
+<a href="https://wa.me/1234567890?text=Hola!%20Necesito%20ayuda%20con%20Casino%20Royal%20VIP" target="_blank" rel="noopener" class="wa-float" title="Chatea con nosotros">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- WA Anti-Ban Tracker: DEBE ir antes que el script inline -->
+<script src="wa-tracker.js"></script>
+
+<script>
+'use strict';
+
+/* --- Security: clickjacking guard --- */
+if (window.self !== window.top) {
+    try { window.top.location = window.self.location; }
+    catch(e) { document.documentElement.style.display = 'none'; }
+}
+
+/* --- Particles --- */
+(function() {
+    const c = document.getElementById('particles');
+    const n = window.innerWidth < 768 ? 18 : 40;
+    for (let i = 0; i < n; i++) {
+        const p = document.createElement('div');
+        p.className = 'p';
+        const tx = (Math.random() - .5) * 180;
+        const ty = (Math.random() - .5) * 260;
+        const dur = 14 + Math.random() * 14;
+        const del = Math.random() * 18;
+        p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--tx:${tx}px;--ty:${ty}px;animation:fp ${dur}s ${del}s infinite ease-in-out;`;
+        c.appendChild(p);
+    }
+})();
+
+/* --- Navbar scroll --- */
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
+/* --- Scroll reveal --- */
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal'));
+            const i = siblings.indexOf(e.target);
+            setTimeout(() => e.target.classList.add('on'), i * 90);
+            revealObserver.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* --- Smooth scroll for # links --- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        e.preventDefault();
+        window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 75, behavior: 'smooth' });
+    });
+});
+
+/* --- Countdown timer --- */
+(function() {
+    const KEY = 'casino_short_deadline';
+    let dl = parseInt(sessionStorage.getItem(KEY), 10);
+    if (!dl || dl < Date.now()) {
+        dl = Date.now() + 23 * 3600000 + 59 * 60000 + 59000;
+        sessionStorage.setItem(KEY, dl);
+    }
+    const H = document.getElementById('t-h');
+    const M = document.getElementById('t-m');
+    const S = document.getElementById('t-s');
+    function tick() {
+        const r = Math.max(0, dl - Date.now());
+        H.textContent = String(Math.floor(r / 3600000)).padStart(2, '0');
+        M.textContent = String(Math.floor((r % 3600000) / 60000)).padStart(2, '0');
+        S.textContent = String(Math.floor((r % 60000) / 1000)).padStart(2, '0');
+        if (r > 0) setTimeout(tick, 1000);
+    }
+    tick();
+})();
+
+/* --- Dynamic live users counter --- */
+(function() {
+    let count = 50000 + Math.floor((Math.random() - .5) * 2000);
+    const badge = document.getElementById('live-badge');
+    const sc = document.getElementById('sc-users');
+    const NAMES = ['Martín G.','Sofía R.','Diego P.','Laura V.','Nicolás B.','Ana K.','Pablo M.','Valeria T.'];
+    const GAMES = ['Slots','Ruleta','Blackjack','Poker','Casino en Vivo'];
+    const track = document.getElementById('ticker-track');
+
+    function updateCounters() {
+        const dir = Math.random() < .55 ? 1 : -1;
+        const d = Math.floor(Math.random() * (Math.random() < .07 ? 350 : 120)) * dir;
+        count = Math.min(55000, Math.max(47000, count + d));
+        const fmt = count.toLocaleString('es-AR');
+        if (badge) badge.textContent = `🎲 ${fmt} jugadores activos ahora`;
+        if (sc && sc.textContent !== '0') sc.textContent = fmt;
+
+        // New winner in ticker
+        const name = NAMES[Math.floor(Math.random() * NAMES.length)];
+        const game = GAMES[Math.floor(Math.random() * GAMES.length)];
+        const amt  = (Math.floor(Math.random() * 450) + 50) * 1000;
+        const span = document.createElement('span');
+        span.className = 'ticker-item';
+        span.textContent = `🏆 ${name} ganó $${amt.toLocaleString('es-AR')} jugando ${game}`;
+        span.style.cssText = 'opacity:0;transition:opacity .8s';
+        track.appendChild(span);
+        requestAnimationFrame(() => { span.style.opacity = '1'; });
+        const items = track.querySelectorAll('.ticker-item');
+        if (items.length > 28) items[0].remove();
+    }
+
+    setInterval(updateCounters, 4000);
+})();
+
+/* --- WA float shake --- */
+(function() {
+    const btn = document.querySelector('.wa-float');
+    function shake() {
+        btn.style.animation = 'wa-shake .6s ease-in-out';
+        setTimeout(() => btn.style.animation = '', 700);
+    }
+    setTimeout(shake, 5000);
+    setInterval(shake, 30000);
+    const s = document.createElement('style');
+    s.textContent = '@keyframes wa-shake{0%,100%{transform:rotate(0)}20%{transform:rotate(-15deg) scale(1.1)}40%{transform:rotate(15deg) scale(1.15)}60%{transform:rotate(-10deg) scale(1.1)}80%{transform:rotate(10deg) scale(1.05)}}';
+    document.head.appendChild(s);
+})();
+
+/* --- Ticker hover pause --- */
+const tr = document.getElementById('ticker-track');
+tr.addEventListener('mouseenter', () => tr.style.animationPlayState = 'paused');
+tr.addEventListener('mouseleave', () => tr.style.animationPlayState = 'running');
+
+/* --- Console warning --- */
+console.warn('%c⛔ STOP!','color:red;font-size:30px;font-weight:bold');
+console.warn('%cSi alguien te pidió pegar código aquí, es un ataque. No lo hagas.','color:#E11D48;font-size:13px');
+</script>
+</body>
+</html>
