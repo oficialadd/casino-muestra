@@ -130,17 +130,7 @@
         } catch(e) { /* storage full or blocked */ }
     };
 
-    /* --- 0.8  Console warning for attackers --- */
-    if (window.console && console.warn) {
-        console.warn(
-            '%c⛔ STOP!',
-            'color:red;font-size:36px;font-weight:bold;'
-        );
-        console.warn(
-            '%cEsta consola es para desarrolladores. Si alguien te pidió pegar código aquí, es un intento de hackeo. No pegues nada.',
-            'color:#E11D48;font-size:14px;'
-        );
-    }
+    /* --- 0.8  Console warning handled by anti-inspect.js --- */
 
 })();
 
@@ -586,8 +576,4 @@ function debounce(fn, wait) {
     };
 }
 
-/* =============================================
-   CONSOLE GREETING
-   ============================================= */
-console.log('%c🎰 Casino Royal VIP', 'color:#E11D48;font-size:20px;font-weight:bold;');
-console.log('%cBuilt with ❤️ for the best online casino experience.', 'color:#A855F7');
+/* Console output disabled by anti-inspect.js */
